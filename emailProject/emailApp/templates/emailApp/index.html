@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'style.css' %}">
+	<title>Email Project</title>
+
+</head>
+<body>
+	<div class="container">  
+		<form id="contact" action="{% url 'sendEmail' %}" method="POST">
+		  <h3> Contact Form</h3>
+		  <h4>Contact us for custom quote</h4>
+
+		  <fieldset>
+			<input placeholder="Your name" type="text" name="name" required autofocus>
+		  </fieldset>
+
+		  <fieldset>
+			<input placeholder="Your Phone Number" type="number" name="phone" required>
+		  </fieldset>
+
+		  <fieldset>
+			<input placeholder="Your Location" type="text" name="location" required>
+		  </fieldset>
+
+		  <fieldset>
+			<textarea placeholder="Type your message here...." name="message" required></textarea>
+		  </fieldset>
+
+		  <fieldset>
+			<input placeholder="Your Email" type="email" name="fromEmail" required>
+		  </fieldset>
+
+		  <fieldset>
+			<input placeholder="Recipient Email" type="email" name="recipientEmail" required>
+		  </fieldset>
+
+		  <fieldset>
+			<button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+		  </fieldset>
+
+		  {% csrf_token %}
+		  <p class="copyright">Designed by <a href="#" target="_blank">Prakash</a></p>
+		</form>
+	  </div>
+	  
+</body>
+</html>
